@@ -1,7 +1,9 @@
-# Financial Risk & Loss Forecasting Using XGBoost Regression
+# Property Insurance Risk Classification & Claims Prediction
 
 ## 📈 Project Overview
-When high-impact, low-frequency events occur, operational systems face massive data volatility spikes. This project develops an end-to-end predictive machine learning pipeline using Python and XGBoost to forecast continuous financial loss and recovery amounts. 
+Insurance operations face a persistent challenge when it comes to accurately identifying which properties are highly likely to file claims while dealing with massive dat imbalance (as the vast majority of properties never file a claim). 
+
+Using a real-world home insurance dataset, this project develops an end-to-end predictive machine learning pipeline using Python and XGBoost to classify high-risk properties (specifically predicting whether a property will file a claim within a 3-year window). This serves as a scalable framework for risk evaluation, helping underwriters automate risk triaging and allocate resources more effectively.
 
 While applied here to catastrophic property damage claims within the insurance sector, the core architecture serves as a scalable blueprint for any enterprise looking to automate high-stakes risk triaging, optimize resource allocation, and minimize financial baseline prediction errors.
 
@@ -12,13 +14,13 @@ While applied here to catastrophic property damage claims within the insurance s
 * **Visualization:** Seaborn, Matplotlib
 
 ## 📊 Machine Learning Workflow
-1. **Data Engineering & EDA:** Handled highly skewed continuous target distributions and engineered a composite *Vulnerability Index* to capture non-linear relationships between feature variables.
-2. **Pipeline Development:** Built a robust data preprocessing workflow utilizing Scikit-Learn pipelines to handle categorical encoding and feature scaling seamlessly.
-3. **Advanced Modeling (XGBoost):** Evaluated baseline linear models against an optimized XGBoost Regressor. Implemented hyperparameter tuning (Learning Rate, Max Depth, and Estimators) via Grid Search to maximize model generalization.
-4. **Model Explainability:** Extracted global feature importance metrics to provide transparent, interpretable data insights regarding the primary drivers of financial loss.
-5. **Evaluation:** The finalized XGBoost model achieved an R² score of 0.89, outperforming baseline models and demonstrating clear business utility for automated risk evaluation.
+1. **Data Engineering & EDA:** Handled highly imbalanced class distributions (where active claims make up a small minority of the data) and analyzed key risk factors like roof/wall construction materials, safety features, and geographic hazards.
+2. **Pipeline Development:** Created a structured preprocessing workflow in Scikit-Learn using `ColumnTransformer` to handle categorical encoding (for building types and materials) and numeric scaling (for building dimensions and age) in one seamless pipeline.
+3. **Advanced Modeling (XGBoost):** Evaluated standard baseline models against an optimized XGBoost Classifier. Handled class imbalance using parameter tuning (`scale_pos_weight`) and optimized hyperparameters via Grid Search to maximize model generalization.
+4. **Model Explainability:** Extracted feature importance scores from the final model to identify the primary real-world drivers behind property risk (e.g., how factors like geographic location or safety systems affect claim likelihood).
+5. **Evaluation:** Optimized the classifier targeting ROC-AUC and Precision-Recall curves to ensure we minimize false negatives—making sure high-risk properties aren't missed by the automation.
 
 ## 📁 Repository Structure
-* `/data`: Simulated and processed risk exposure datasets.
-* `/notebooks`: Comprehensive Jupyter notebooks tracking EDA, feature engineering, and model validation.
-* `/src`: Production-ready, modular Python scripts for data cleaning and model inference.
+* `/data`: Historical property insurance CSV dataset.
+* `/notebooks`: Step-by-step Jupyter notebook detailing exploratory analysis, preprocessing trials, and model evaluation.
+* `/src`: Modular Python scripts for reusable cleaning, processing, and prediction.
