@@ -1,7 +1,7 @@
 # Property Insurance Risk Classification & Claims Prediction
 
 ## 📈 Project Overview
-Insurance operations face a persistent challenge when it comes to accurately identifying which properties are highly likely to file claims while dealing with massive dat imbalance (as the vast majority of properties never file a claim). 
+Insurance operations face a persistent challenge when it comes to accurately identifying which properties are highly likely to file claims while dealing with massive data imbalance (as the vast majority of properties never file a claim). 
 
 Using a real-world home insurance dataset, this project develops an end-to-end predictive machine learning pipeline using Python and XGBoost to classify high-risk properties (specifically predicting whether a property will file a claim within a 3-year window). This serves as a scalable framework for risk evaluation, helping underwriters automate risk triaging and allocate resources more effectively.
 
